@@ -290,7 +290,9 @@ module.exports = function(webpackEnv) {
         // Support React Native Web
         // https://www.smashingmagazine.com/2016/08/a-glimpse-into-the-future-with-react-native-for-web/
         'react-native': 'react-native-web',
-        'style':path.join(__dirname,'../src/style')
+        'style':path.join(__dirname,'../src/style'),
+        'utils':path.join(__dirname,'../src/utils'),
+        'pages':path.join(__dirname,'../src/pages')
         //用path.join和path.resolve都可以
       },
       plugins: [
@@ -364,6 +366,7 @@ module.exports = function(webpackEnv) {
                 ),
                 
                 plugins: [
+                  ['import',{'libraryName':'antd','style':true}],
                   [
                     require.resolve('babel-plugin-named-asset-import'),
                     {
